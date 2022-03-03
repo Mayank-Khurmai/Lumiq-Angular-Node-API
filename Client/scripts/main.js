@@ -41,9 +41,16 @@ request_registration = (data)=>{
   let url = "http://localhost:8080";
 
   fetch(url, request_details).then((response)=>{
-      return response.text();
+      if(response.status == 409){
+        alert("Email Already Exists !");
+      }
+      else{
+        alert("Successfully Registered");
+        document.querySelector(".tablinks").click();
+      }
+      return response.json();
   }).then((data)=>{
-      console.log(data);
+    console.log(data);
   });
 }
 
@@ -68,37 +75,36 @@ register = ()=>{
     'gender' : gender,
     'password' : password
   }
-  request_registration(data);
 
-  // if(password != ""){
-  //   if(password == c_password && password !=""){
-  //     if(name != ""){
-  //       if(email_validate(email)){
-  //         if(mobile.length == 10){
-  //           if(address != ""){
-  //               request_registration(data);
-  //           }
-  //           else{
-  //             alert("Address cannot be empty");
-  //           }
-  //         }
-  //         else{
-  //           alert("Invalid Mobile");
-  //         }
-  //       }
-  //       else{
-  //         alert("Invalid Email");
-  //       }
-  //     }
-  //     else{
-  //       alert("Name cannot be empty");
-  //     }
-  //   }
-  //   else{
-  //     alert("Mis-match Password");
-  //   }
-  // }
-  // else{
-  //     alert("Password cannot be empty");
-  // }
+  if(password != ""){
+    if(password == c_password && password !=""){
+      if(name != ""){
+        if(email_validate(email)){
+          if(mobile.length == 10){
+            if(address != ""){
+                request_registration(data);
+            }
+            else{
+              alert("Address cannot be empty");
+            }
+          }
+          else{
+            alert("Invalid Mobile");
+          }
+        }
+        else{
+          alert("Invalid Email");
+        }
+      }
+      else{
+        alert("Name cannot be empty");
+      }
+    }
+    else{
+      alert("Mis-match Password");
+    }
+  }
+  else{
+      alert("Password cannot be empty");
+  }
 }
