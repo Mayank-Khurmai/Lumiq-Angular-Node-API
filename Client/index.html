@@ -17,18 +17,28 @@
 
     <div id="result-div">
       <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
-        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+        <button class="tablinks" onclick="openCity(event, 'login-div')">Login</button>
+        <button class="tablinks" onclick="openCity(event, 'signup-div')" id="defaultOpen">Sign Up</button>
       </div>
       
-      <div id="London" class="tabcontent">
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
+      <div id="login-div" class="tabcontent form-div">
+        <form>
+          <input type="text" name="field1" placeholder="Full Name" />
+          <input type="email" name="field2" placeholder="Email" />
+          <input type="url" name="field3" placeholder="Website" />
+          <textarea placeholder="Message" onkeyup="adjust_textarea(this)"></textarea>
+          <input type="button" value="Login" />
+        </form>
       </div>
       
-      <div id="Paris" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p> 
+      <div id="signup-div" class="tabcontent form-div">
+        <form>
+          <input type="text" name="field1" placeholder="Full Name" />
+          <input type="email" name="field2" placeholder="Email" />
+          <input type="url" name="field3" placeholder="Website" />
+          <textarea placeholder="Message" onkeyup="adjust_textarea(this)"></textarea>
+          <input type="button" value="Sign Up" />
+        </form>
       </div>
     </div>
     
