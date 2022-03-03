@@ -79,18 +79,10 @@ h3{
 }
 
 
-
 .form-div input[type="text"],
-.form-div input[type="date"],
-.form-div input[type="datetime"],
 .form-div input[type="email"],
 .form-div input[type="number"],
-.form-div input[type="search"],
-.form-div input[type="time"],
-.form-div input[type="url"],
-.form-div input[type="password"],
-.form-div textarea,
-.form-div select 
+.form-div input[type="password"]
 {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -98,18 +90,15 @@ h3{
 	outline: none;
 	display: block;
 	width: 100%;
-	padding: 7px;
+	padding: 0px;
 	border: none;
 	border-bottom: 1px solid #ddd;
 	background: transparent;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
 	font: 16px Arial, Helvetica, sans-serif;
 	height: 45px;
 }
-.form-div textarea{
-	resize:none;
-	overflow: hidden;
-}
+
 .form-div input[type="button"], 
 .form-div input[type="submit"]{
 	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
@@ -124,6 +113,7 @@ h3{
 	font-size: 14px;
 	padding: 8px 18px;
 	text-decoration: none;
+  margin-top: 7px;
 	text-transform: uppercase;
 }
 .form-div input[type="button"]:hover, 

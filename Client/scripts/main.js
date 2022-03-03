@@ -17,3 +17,26 @@ function openCity(evt, cityName)
 }
 
 document.getElementById("defaultOpen").click();
+
+
+login = ()=>{
+  let email = document.querySelector('input[name="login-field-1"]').value;
+  let password = document.querySelector('input[name="login-field-2"]').value;
+}
+
+register = ()=>{
+  let f_name = document.querySelector('input[name="register-field-1"]').value;
+  let email = document.querySelector('input[name="register-field-2"]').value;
+  let mobile = document.querySelector('input[name="register-field-3"]').value;
+  let address = document.querySelector('input[name="register-field-4"]').value;
+  let password = document.querySelector('input[name="register-field-5"]').value;
+  let c_password = document.querySelector('input[name="register-field-6"]').value;
+  let gender;
+  if(document.querySelector('input[name="register-field-7"]').checked)
+    gender = "Male";
+  else
+    gender = "Female";
+
+
+  alert(gender);
+}
