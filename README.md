@@ -2,7 +2,7 @@
 
 
 
-Assignment API - Node + MongoDB
+Assignment API - Node + MongoDB (with Validations)
 ![App Screenshot](https://github.com/Mayank-Khurmai/Lumiq-Node-API/blob/main/Screenshots/api-1.png)
 <br>
 ![App Screenshot](https://github.com/Mayank-Khurmai/Lumiq-Node-API/blob/main/Screenshots/api-2.png)
