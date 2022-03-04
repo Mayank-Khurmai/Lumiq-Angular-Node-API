@@ -89,15 +89,17 @@ const server = http.createServer((request, response)=>{
                     const db = conn.db("api_db");
                     db.collection("loginDetails").find(receivedData).count((error, length)=>{
                         if(length != 0){
-                            response.writeHead(200, {
-                                'Content-type' : 'application/json',
-                                'Access-Control-Allow-Origin' : '*'
+                            db.collection("loginDetails").find(receivedData, {projection:{_id:1}}).toArray((error, data)=>{
+                                response.writeHead(200, {
+                                    'Content-type' : 'application/json',
+                                    'Access-Control-Allow-Origin' : '*'
+                                });
+                                let outputMsg = {
+                                    message: data
+                                };
+                                response.write(JSON.stringify(outputMsg));
+                                response.end(); 
                             });
-                            let outputMsg = {
-                                message: "Login Success"
-                            };
-                            response.write(JSON.stringify(outputMsg));
-                            response.end(); 
                         }
                         else{
                             response.writeHead(401, {
@@ -118,6 +120,7 @@ const server = http.createServer((request, response)=>{
     else
     {
         console.log("Else");
+        response.end();
     }
 
 });

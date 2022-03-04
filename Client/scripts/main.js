@@ -38,10 +38,12 @@ request_login = (data)=>{
   ajaxHTTP.open("POST", url, true);
   ajaxHTTP.onload = function () {
       if (this.readyState == 4 && this.status == 200) {
-        console.log("Success");    
+        let uid = JSON.parse(this.responseText);
+        uid = uid.message[0]._id;
+        window.location.href = url+"/"+uid;
       }
       else{
-        console.log("Failed");
+        alert("Invalid Email & Password !");
       } 
 }
   ajaxHTTP.send(JSON.stringify(request_details));
