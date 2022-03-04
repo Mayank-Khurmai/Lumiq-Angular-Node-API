@@ -28,9 +28,50 @@ openTab = (evt, tabName)=>{
 document.getElementById("defaultOpen").click();
 
 
+request_login = (data)=>{
+  let request_details = {
+    method: 'POST',
+    body: JSON.stringify(data)
+  }
+  let url = "http://localhost:8080/login";
+  const ajaxHTTP = new XMLHttpRequest();
+  ajaxHTTP.open("POST", url, true);
+  ajaxHTTP.onload = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log("Success");    
+      }
+      else{
+        console.log("Failed");
+      } 
+}
+  ajaxHTTP.send(JSON.stringify(request_details));
+}
+
 login = ()=>{
   let email = document.querySelector('input[name="login-field-1"]').value;
   let password = document.querySelector('input[name="login-field-2"]').value;
+
+  let data = {
+    'email' : email,
+    'password' : password
+  }
+
+  if(email != ""){
+      if(email_validate(email)){
+        if(password != ""){
+          request_login(data);
+        }
+        else{
+          alert("Password cannot be empty");
+        }
+      }
+      else{
+        alert("Invalid Email !");
+      }
+  }
+  else{
+    alert("Email cannot be Empty !");
+  }
 }
 
 request_registration = (data)=>{
