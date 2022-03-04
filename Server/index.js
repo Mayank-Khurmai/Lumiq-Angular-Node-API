@@ -1,4 +1,5 @@
 const http  = require("http");
+const fs = require("fs");
 const mongo = require("mongodb").MongoClient;
 const mongo_url = "mongodb://127.0.0.1:27017";
 
@@ -115,12 +116,40 @@ const server = http.createServer((request, response)=>{
                     });
                 });
             });
+    } 
+
+    else if(request.url == "/style/main.css")
+    {
+        fs.readFile("./serverPages/style/main.css", (error, data)=>{
+            response.writeHead(200, {
+                'Content-type' : 'text/css',
+                'Access-Control-Allow-Origin' : '*'
+            });
+            response.write(data);
+            response.end(); 
+        });
     }
 
     else
     {
-        console.log("Else");
-        response.end();
+        // Receiving Data
+        var incoming_data = "";
+        request.on('data', (chunks)=>{
+            incoming_data += chunks.toString();
+        });
+
+        request.on('end', ()=>{
+            
+            fs.readFile("./serverPages/home.html", (error, data)=>{
+                response.writeHead(200, {
+                    'Content-type' : 'text/html',
+                    'Access-Control-Allow-Origin' : '*'
+                });
+                response.write(data);
+                response.end(); 
+            });
+
+        });
     }
 
 });
