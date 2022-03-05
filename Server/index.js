@@ -118,7 +118,7 @@ const server = http.createServer((request, response)=>{
             });
     } 
 
-    else if(request.url == "/style/main.css")
+    else if(request.url == "/login/styles/main.css")
     {
         fs.readFile("./serverPages/style/main.css", (error, data)=>{
             response.writeHead(200, {
